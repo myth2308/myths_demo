@@ -1,0 +1,126 @@
+
+{% extends "app/base1.html" %}
+{% load static %}
+{% block title %} Mythstrip | Package {% endblock title %}
+{% block  content%}
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4">Gói Tour</h1>
+            </div>
+        </div>
+        <!-- Header End -->
+        
+        <!-- Package Start -->
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title bg-white text-center text-primary px-3">Gói Tour</h6>
+                    <h1 class="mb-5">Tour Hiện Có</h1>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    {% for tour in tours %}
+                        <div class="col-lg-4 border col-md-6 wow fadeInUp" data-wow-delay="0.1s" style='height:600px'>
+                            <div class="package-item" style="height: 550px">
+                                <style>
+                                    .packages-img {
+                                        width: 100%; /* Thiết lập chiều rộng tối đa của phần tử cha */
+                                        height: 300px; /* Thiết lập chiều cao cố định cho phần tử cha */
+                                        overflow: hidden; /* Ẩn các phần tử con vượt ra khỏi khung */
+                                    }
+                                    .packages-img img {
+                                        width: 100%; /* Chiều rộng của hình ảnh sẽ bằng 100% của phần tử cha */
+                                        height: 300px; /* Chiều cao sẽ tự động tính toán để giữ tỷ lệ khung hình */
+                                        display: block; /* Đảm bảo hình ảnh không bị đè lên nhau */
+                                    }
+                                </style>
+                                <div class="packages-img">
+                                    <img class="img-fluid" src="{{ tour.image.url }}" alt="">
+                                </div>
+                                <div class="d-flex border-bottom">
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>{{ tour.duration_date }}</small>
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt text-primary me-2"></i>{{ tour.duration_days }}</small>
+                                    <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{ tour.num_person }}</small>
+                                </div>
+                                <div class="text-center p-4">
+                                    <h5 style='height:25px'>{{ tour.destination_name }}</h5><br>
+                                    <div class="mb-3">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary" style='color:#ff81a4;'></small>
+                                    </div>
+                                    <h3 class="mb-0">{{ tour.price }}Tr</h3><br>
+                                    
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <a href="{% url 'packages_detail' tour.id %}" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;" >Đọc thêm</a>
+                                        <a href="{% url 'booking' %}" class="btn btn-sm btn-primary px-3" style="border-radius: 0px 30px 30px 0px;">Đặt ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            {% if tours.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ tours.previous_page_number}}{% if request.GET.product_name %}&product_name={{ request.GET.product_name }}{% endif %}" tabindex="-1">Previous</a>
+                            </li>
+                            {% endif %}
+            
+                            {% if tours.number > 5 %}
+                            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                            
+                            {% for i in tours.paginator.page_range %}
+                                {% if i > tours.number|add:"-5" %}
+                                    {% if i < tours.number|add:"5" %}
+                                        {% if tours.number == i %}
+                            <li class="page-item active"><a class="page-link" href="?page={{ i }}{% if request.GET.product_name %}&product_name={{ request.GET.product_name }}{% elif request.GET.from_price %}&from_price={{ request.GET.from_price}}&to_price={{ request.GET.to_price }}&product_name {{request.GET.product_name }}{% endif %}">{{ i }}</a></li>
+                                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}{% if request.GET.product_name %}&product_name={{ request.GET.product_name }}{% elif request.GET.from_price %}&from_price={{ request.GET.from_price}}&to_price={{ request.GET.to_price }}&product_name {{request.GET.product_name }}{% endif %}">{{ i }}</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+            
+                            {% if tours.number < tours.paginator.num_pages|add:"-4" %}
+                            <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Package End -->
+
+        <!-- Subscribe Start -->
+        <div class="container-fluid subscribe py-5">
+            <div class="container text-center py-5">
+                
+                <div class="mx-auto text-center" style="max-width: 900px;">
+                    
+                    <h5 class="subscribe-title px-3">Theo dõi</h5>
+                    <h1 class="text-white mb-4">Bản tin của chúng tôi</h1>
+                    <p class="text-white mb-5">Đừng quên đăng ký để nhận bản tin trong tương lai của chúng tôi trực tiếp vào hộp thư đến của bạn. Mythstrip sẽ luôn cung cấp những thông tin mới nhất và hữu ích nhất giúp bạn lên kế hoạch cho những chuyến đi tốt nhất!
+                    </p>
+                    <div class="position-relative mx-auto">
+                        <form method="POST" action="{% url 'subscribe' %}">
+                            {% csrf_token %}
+                            <input name='email' class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                            <button type="submit" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Subscribe End -->
+        
+    
+    {% endblock %}

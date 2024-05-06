@@ -1,0 +1,153 @@
+{% extends "app/base1.html" %}
+{% load static %}
+{% block title %} Mythstrip | About {% endblock title %}
+{% block  content%}
+
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4">Giới thiệu</h1>
+            </div>
+        </div>
+        <!-- Header End -->
+        <!-- About Start -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-5">
+                        <div class="h-100" style="border: 50px solid; border-color: transparent #4f6e96 transparent #4f6e96;">
+                            <img src="{% static 'app/img/travel-for-free.jpg' %}" class="img-fluid w-100 h-100" style='heigh:300px' alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url(img/about-img-1.png);">
+                        <h5 class="section-about-title pe-3">Về chúng tôi</h5>
+                        <h1 class="mb-4" style='font-family:"Quicksand",sans-serif;font-weight:500'>Welcome to <span style='color: #ff81a4'>Myth<span style="color: #a1b3cb; ">strip</h1>Mythstrip là công ty lữ hành quốc tế chuyên khảo sát và du lịch lữ hành. Chúng tôi cung cấp các gói dịch vụ tư vấn và sắp xếp chuyến đi phù hợp mang lại giá trị tốt nhất. Sứ mệnh của chúng tôi là trở thành nhà cung cấp dịch vụ du lịch hàng đầu cho công dân trên toàn thế giới.</p>
+                        <p class="mb-4">Đội ngũ nhân viên của chúng tôi tự tin vào khả năng đáp ứng nhu cầu của khách hàng với sự nhiệt tình, thân thiện và chuyên nghiệp. Đây là điểm khởi đầu hướng tới việc phát triển mối quan hệ lâu dài và sự tin cậy với khách hàng, đối tác.</p>
+                        <div class="row gy-2 gx-4 mb-4">
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Trải nghiệm độc đáo</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Thanh toán linh hoạt</p>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Khả năng chi trả</p>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Thư giãn trong suốt hành trình
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Minh bạch và đáng tin cậy</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Dịch vụ 24/7</p>
+                            </div>
+                            <div class="col-sm-8">
+                                <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Mục tiêu là mang đến sự hài lòng cho du khách</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+        
+        <!-- Services Start -->
+        <div class="container-fluid bg-light service py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Dịch vụ</h5>
+                    <h1 class="mb-0">Dịch vụ của chúng tôi</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6" >
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0"> 
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Chuyến tham quan thế giới</h5>
+                                        <p class="mb-0" >Với sứ mệnh biến mỗi chuyến đi trở thành một kỷ niệm khó quên, Mythstrip đã lên kế hoạch và tổ chức tỉ mỉ từng chi tiết của chuyến du lịch vòng quanh thế giới này. Từ việc lựa chọn những điểm đến độc đáo, hấp dẫn cho đến xây dựng những chương trình thú vị, trải nghiệm đặc biệt, mọi thứ đều được chuẩn bị kỹ lưỡng để đảm bảo du khách sẽ có một hành trình tuyệt vời.
+                                        </p>
+                                    </div>
+                                    <div class="service-icon p-4">
+                                        <i class="fa fa-globe fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center  bg-white border border-primary rounded p-4 pe-0" >
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Đặt phòng khách sạn</h5>
+                                        <p class="mb-0" >Dịch vụ Đặt phòng khách sạn của công ty du lịch Mythstrip là một phần quan trọng trong việc cung cấp trải nghiệm du lịch toàn diện cho khách hàng. Bằng cách kết hợp sự linh hoạt, chuyên nghiệp và chú ý đến từng chi tiết, Mythstrip cung cấp đa dạng các dịch vụ đặt phòng khách sạn nhằm đáp ứng nhu cầu và mong muốn của mọi khách hàng.
+                                        </p>
+                                    </div>
+                                    <div class="service-icon p-4">
+                                        <i class="fa fa-hotel fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" >
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0">
+                                    <div class="service-content text-end" >
+                                        <h5 class="mb-4">Quản lý sự kiện</h5>
+                                        <p class="mb-0" >Từ các chuyến tham quan nhỏ tại các điểm đến độc đáo cho đến các sự kiện lớn như lễ hội, triển lãm hay hội nghị, bộ phận Quản lý sự kiện của Mythstrip đều quan tâm đến từng chi tiết để đảm bảo mọi khía cạnh của sự kiện đều hoàn hảo. Họ không chỉ quản lý việc đặt chỗ, vận chuyển và lưu trú mà còn tạo ra các hoạt động giải trí, thú vị và trải nghiệm độc đáo để biến mỗi sự kiện thành một kỷ niệm khó quên đối với khách hàng.
+
+                                        
+                                    </div>
+                                    <div class="service-icon p-4">
+                                        <i class="fa fa-cog fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="service-content-inner d-flex align-items-center bg-white border border-primary rounded p-4 pe-0" >
+                                    <div class="service-content text-end">
+                                        <h5 class="mb-4">Hướng dẫn viên du lịch</h5>
+                                        <p class="mb-0" >Mythstrip cung cấp các chuyến tham quan cá nhân và nhóm cho khách hàng giải trí và doanh nghiệp. Các dịch vụ và sản phẩm được cung cấp bao gồm tư vấn du lịch, đặt tour trước, đặt tour theo yêu cầu riêng, đặt chỗ ở, thuê xe, trải nghiệm cuộc sống địa phương, v.v...
+                                        </p>
+                                    </div>
+                                    <div class="service-icon p-4">
+                                        <i class="fa fa-user fa-4x text-primary"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+        <!-- Subscribe Start -->
+        <div class="container-fluid subscribe py-5">
+            <div class="container text-center py-5">
+                
+                <div class="mx-auto text-center" style="max-width: 900px;">
+                    
+                    <h5 class="subscribe-title px-3">Theo dõi</h5>
+                    <h1 class="text-white mb-4">Bản tin của chúng tôi</h1>
+                    <p class="text-white mb-5">Đừng quên đăng ký để nhận bản tin trong tương lai của chúng tôi trực tiếp vào hộp thư đến của bạn. Mythstrip sẽ luôn cung cấp những thông tin mới nhất và hữu ích nhất giúp bạn lên kế hoạch cho những chuyến đi tốt nhất!
+                    </p>
+                    <div class="position-relative mx-auto">
+                        <form method="POST" action="{% url 'subscribe' %}">
+                            {% csrf_token %}
+                            <input name='email' class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                            <button type="submit" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Subscribe End -->
+        
+
+{% endblock %}

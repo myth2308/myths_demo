@@ -1,0 +1,197 @@
+
+
+{% extends "app/base1.html" %}
+{% load static %}
+{% block title %} Mythstrip | Booking Successfully {% endblock title %}
+{% block  content%}
+
+
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h3 class="text-white display-3 mb-4">Đặt tour trực tuyến</h1>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Tour Booking Start -->
+        <div class="container-fluid booking py-5">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h5 class="section-booking-title pe-3">Đặt tour</h5>
+                        <h1 class="text-white mb-4">Đặt tour trực tuyến</h1>
+                        <p class="text-white mb-4">Lựa chọn tour: Khám phá các tour du lịch mà chúng tôi cung cấp thông qua trang web của chúng tôi. Duyệt qua các lựa chọn tour, chương trình, và điểm đến để tìm tour phù hợp với kế hoạch của bạn.
+                        </p>
+                        <p class="text-white mb-4">Điền thông tin: Sau khi bạn đã chọn tour mong muốn, điền vào biểu mẫu đặt tour trực tuyến với các thông tin cần thiết như email, số điện thoại, số người tham gia, và các yêu cầu đặc biệt nếu có.
+                        </p>
+                        <p class="text-white mb-4">Xác nhận: Sau khi đặt tour được xác nhận, bạn sẽ nhận được thông tin xác nhận đặt tour qua email hoặc tin nhắn văn bản, bao gồm chi tiết tour, hướng dẫn thanh toán, và thông tin liên hệ trong trường hợp cần thiết.
+                        </p>
+                        <p class="text-white mb-4">Nếu bạn có bất kỳ câu hỏi hoặc cần hỗ trợ nào, đừng ngần ngại liên hệ với chúng tôi. Chúng tôi luôn sẵn lòng hỗ trợ bạn.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="text-white mb-3"></h1>
+                        <p class="text-white mb-4">Với dịch vụ <span class="text-warning">đặt tour trực tuyến </span>của chúng tôi, việc lên kế hoạch cho kỳ nghỉ của bạn trở nên dễ dàng và thuận tiện hơn bao giờ hết. Hãy bắt đầu hành trình của bạn ngay hôm nay!!</p>
+                        <form method='POST'>
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-white border-0" name="name" id="name" placeholder="Your Name" required>
+                                        <label for="name">Họ và tên</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control bg-white border-0" name='email' id="email" placeholder="Your Email" required>
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        <input type="text" class="form-control bg-white border-0" name='phone_number' id="phone_number" placeholder="Phone Number" data-target="#" data-toggle="" attern="[0-9]{10}" required/>
+                                        <label for="datetime">Số điện thoại</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-white border-0" name='tour_id' id="tour">
+                                            {% for tour in tours %}
+                                            <option value="{{ tour.id }}">{{ tour.destination }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <label for="select1">Điểm đến</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-white border-0" id="adults" name="adults">
+                                            <option value="1"> 1</option>
+                                                    <option value="2"> 2</option>
+                                                    <option value="3"> 3</option>
+                                                    <option value="4"> 4</option>
+                                                    <option value="5"> 5</option>
+                                                    <option value="6"> 6</option>
+                                                    <option value="7"> 7</option>
+                                                    <option value="8"> 8</option>
+                                                    <option value="9"> 9</option>
+                                                    <option value="10"> 10</option>
+                                        </select>
+                                        <label for="SelectPerson">Người lớn</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select bg-white border-0" id="children" name="children">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        <label for="Children">Trẻ em</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control bg-white border-0" placeholder="Special Request" name="special_requests" id="special_requests" style="height: 100px"></textarea>
+                                        <label for="message">Yêu cầu đặc biệt</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary text-white w-100 py-3" type="submit">Đặt ngay</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tour Booking End -->
+
+        <!-- Packages Start -->
+        <div class="container-fluid packages py-5">
+            <div class="container py-5">
+                <div class="mx-auto text-center mb-5" style="max-width: 900px;">
+                    <h5 class="section-title px-3">Gói Tour</h5>
+                    <h1 class="mb-0">Tour Hiện Có</h1>
+                </div>
+                <div class="packages-carousel owl-carousel">
+                    {% for tour in tours_packages %}
+                        <div class="packages-item">
+                            <style>
+                                .packages-img {
+                                    width: 100%; /* Thiết lập chiều rộng tối đa của phần tử cha */
+                                    height: 300px; /* Thiết lập chiều cao cố định cho phần tử cha */
+                                    overflow: hidden; /* Ẩn các phần tử con vượt ra khỏi khung */
+                                }
+                                .packages-img img {
+                                    width: 100%; /* Chiều rộng của hình ảnh sẽ bằng 100% của phần tử cha */
+                                    height: 300px; /* Chiều cao sẽ tự động tính toán để giữ tỷ lệ khung hình */
+                                    display: block; /* Đảm bảo hình ảnh không bị đè lên nhau */
+                                }
+                            </style>
+                            <div class="packages-img">
+                                <img src="{{ tour.image.url }}" class="img-fluid w-100 rounded-top" alt="Image">
+                                <div class="packages-info d-flex border border-start-0 border-end-0 position-absolute" style="width: 100%; bottom: 0; left: 0; z-index: 5;">
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>{{ tour.duration_date }}</small>
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-calendar-alt me-2"></i>{{ tour.duration_days }}</small>
+                                    <small class="flex-fill text-center py-2"><i class="fa fa-user me-2"></i>{{ tour.num_person }}</small>
+                                </div>
+                                <div class="packages-price py-2 px-4">{{ tour.price }}Tr</div>
+                            </div>
+                            <div class="packages-content bg-light">
+                                <div class="p-4 pb-0">
+                                    <h6 class="mb-0" style='height:25px'>{{ tour.destination_name }}</h6><br>
+                                    <div class="mb-3">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"style='color:#ff81a4'></small>
+                                    </div>
+                                    <h4 class="mb-4">{{ tour.price }}Tr</f4>
+                                </div>
+                                <div class="row bg-primary rounded-bottom mx-0">
+                                    <div class="col-6 text-start px-0">
+                                        <a href="{% url 'packages_detail' tour.id %}" class="btn-hover btn text-white py-2 px-4">Đọc thêm</a>
+                                    </div>
+                                    <div class="col-6 text-end px-0">
+                                        <a href="{% url 'booking' %}" class="btn-hover btn text-white py-2 px-4">Đặt ngay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <br>
+            </div>
+        </div>
+        <!-- Packages End -->
+
+        <!-- Subscribe Start -->
+        <div class="container-fluid subscribe py-5">
+            <div class="container text-center py-5">
+                
+                <div class="mx-auto text-center" style="max-width: 900px;">
+                    
+                    <h5 class="subscribe-title px-3">Theo dõi</h5>
+                    <h1 class="text-white mb-4">Bản tin của chúng tôi</h1>
+                    <p class="text-white mb-5">Đừng quên đăng ký để nhận bản tin trong tương lai của chúng tôi trực tiếp vào hộp thư đến của bạn. Mythstrip sẽ luôn cung cấp những thông tin mới nhất và hữu ích nhất giúp bạn lên kế hoạch cho những chuyến đi tốt nhất!
+                    </p>
+                    <div class="position-relative mx-auto">
+                        <form method="POST" action="{% url 'subscribe' %}">
+                            {% csrf_token %}
+                            <input name='email' class="form-control border-primary rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Your email" required>
+                            <button type="submit" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Đăng ký</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Subscribe End -->
+        
+
+{% endblock %}
