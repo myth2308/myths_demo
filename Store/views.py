@@ -39,11 +39,15 @@ def privacy(request):
 
 def refund(request):
     
-
     return render(request, 'app/refund.html',{
         
     })
 
+def viator(request):
+    
+    return render(request, 'app/viator.html',{
+        
+    })
 
 
 
