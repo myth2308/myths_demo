@@ -90,6 +90,13 @@
                         <a href="{% url 'about' %}" class="nav-item nav-link">Giới thiệu</a>
                         <a href="{% url 'packages' %}" class="nav-item nav-link">Gói tour</a>
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Liên hệ</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Đối tác</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="{% url 'viator' %}" class="dropdown-item">Viator</a>
+                                
+                            </div>
+                        </div>
                     </div>
                     <a href="{% url 'booking' %}" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Đặt ngay</a>
                 </div>

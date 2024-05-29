@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -39,7 +40,7 @@
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
+                <span class="sr-only">{% trans "Loading..." %}</span>
             </div>
         </div>
         <!-- Spinner End -->
@@ -61,8 +62,8 @@
                         <div class="dropdown">
                             <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown"><i class="fa fa-globe me-2"></i></a>
                             <div class="dropdown-menu rounded" style='min-width:16px'>
-                                <a href="#" class="dropdown-item"> VI </a>
-                                <a href="#" class="dropdown-item"> EN </a>
+                                <a href="" class="dropdown-item"> VI </a>
+                                <a href="" class="dropdown-item"> EN </a>
                             </div>
                         </div>
                     </div>
@@ -84,12 +85,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="{% url 'index' %}" class="nav-item nav-link active">Trang chủ</a>
-                        <a href="{% url 'about' %}" class="nav-item nav-link">Giới thiệu</a>
-                        <a href="{% url 'packages' %}" class="nav-item nav-link">Gói tour</a>
-                        <a href="{% url 'contact' %}" class="nav-item nav-link">Liên hệ</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">{% trans "Trang chủ" %}</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">{% trans "Giới thiệu" %}</a>
+                        <a href="{% url 'packages' %}" class="nav-item nav-link">{% trans "Gói tour" %}</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">{% trans "Liên hệ" %}</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Đối tác</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="{% url 'viator' %}" class="dropdown-item">Viator</a>
+                                
+                            </div>
+                        </div>
                     </div>
-                    <a href="{% url 'booking' %}" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">Đặt ngay</a>
+                    <a href="{% url 'booking' %}" class="btn btn-primary rounded-pill py-2 px-4 ms-lg-4">{% trans "Đặt ngay" %}</a>
                 </div>
             </nav>
 
